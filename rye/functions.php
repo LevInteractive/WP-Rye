@@ -181,7 +181,7 @@ $rye_config = array(
 
 
 /**
- *  Hook.
+ *  Hook the Rye initialization method with WordPress init.
  *  http://codex.wordpress.org/Function_Reference/add_action
  */
 add_action('init', '_rye_init');

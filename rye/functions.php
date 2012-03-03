@@ -7,8 +7,6 @@
  *
  * 
  *  Project Name: <Name>
- *  PHP Developer: <Your Name>
- *  UI Developer: <Your Name>
  *  Created: <MM-DD-YYYY>
  * 
  */
@@ -21,8 +19,7 @@
  *  Optional. Add custom menu & post thumbnail support.
  *  http://codex.wordpress.org/Function_Reference/add_theme_support
  */
-// add_theme_support('menus');
-// add_theme_support('post-thumbnails');
+// add_theme_support('post-thumbnails', array('post'));
 
 
 
@@ -44,10 +41,11 @@
 $rye_config = array(
 
     /**
-     *  Place JavaScripts in footer.
+     *  Place JavaScripts in footer. This tends to break some plugins that rely on
+     *  jQuery. Enable with caution.
      *  http://developer.yahoo.com/performance/rules.html#js_bottom
      */
-    'place_javascript_in_footer' => true,
+    'place_javascript_in_footer' => false,
 
 
 
@@ -182,7 +180,6 @@ $rye_config = array(
 
 
 
-
 /**
  *  Hook.
  *  http://codex.wordpress.org/Function_Reference/add_action
@@ -195,7 +192,7 @@ add_action('init', 'rye_init');
 /**
  *  Initialize Rye.
  */
-function rye_init()
+function rye_init($rye_config)
 {
     global $rye_config;
     
@@ -230,21 +227,15 @@ function rye_init()
     
     // Register Sidebars.
     foreach ($rye_config['widgetized_regions'] as $region)
-    {
         register_sidebar($region);
-    }
     
     // Register Custom Post Types.
     foreach ($rye_config['post_types'] as $name => $type)
-    {
         register_post_type($name, $type);
-    }
     
     // Register Taxonomies.
     foreach($rye_config['taxonomies'] as $taxonomy)
-    {
         register_taxonomy($taxonomy[0], $taxonomy[1], $taxonomy[2]);
-    }
 }
 
 
@@ -260,21 +251,31 @@ function rye_init()
  *  Miscellaneous theme specific utility functions.
  */
 
-// Truncate text by words.
-// Source: https://bitbucket.org/ellislab/codeigniter/src
+/**
+ *  Filter text through the the_content filter. Userful outside the loop.
+ *  http://codex.wordpress.org/Function_Reference/the_content#Alternative_Usage
+ */
+function rye_the_contentify($str)
+{
+    $content = apply_filters('the_content', $str);
+    $content = str_replace(']]>', ']]&gt;', $content);
+    return $content;
+}
+
+
+/**
+ *  Truncate text by words. Note: This also strips html tags.
+ *  https://bitbucket.org/ellislab/codeigniter/src
+ */
 function rye_truncate_by_words($str, $limit = 100, $end_char = '&#8230;') 
 {
     if (trim($str) == '') 
-    {
         return strip_tags($str);
-    }
     
     preg_match('/^\s*+(?:\S++\s*+){1,'.(int) $limit.'}/', $str, $matches);
     
     if (strlen($str) == strlen($matches[0])) 
-    {
         $end_char = '';
-    }
     
-    return strip_tags(rtrim($matches[0]).$end_char, '<b><strong>');
+    return strip_tags(rtrim($matches[0]).$end_char);
 }

@@ -1,3 +1,1 @@
-<sidebar>
-
-</sidebar>
+<sidebar></sidebar>

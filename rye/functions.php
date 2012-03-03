@@ -184,15 +184,15 @@ $rye_config = array(
  *  Hook.
  *  http://codex.wordpress.org/Function_Reference/add_action
  */
-add_action('init', 'rye_init');
+add_action('init', '_rye_init');
 
 
 
 
 /**
- *  Initialize Rye.
+ *  Initialize the configuration array.
  */
-function rye_init($rye_config)
+function _rye_init($rye_config)
 {
     global $rye_config;
     

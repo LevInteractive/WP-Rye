@@ -42,7 +42,7 @@ $rye_config = array(
 
     /**
      *  Place JavaScripts in footer. This tends to break some plugins that rely on
-     *  jQuery. Enable with caution.
+     *  jQuery in the header. Enable with caution.
      *  http://developer.yahoo.com/performance/rules.html#js_bottom
      */
     'place_javascript_in_footer' => false,
@@ -56,10 +56,9 @@ $rye_config = array(
      *  http://codex.wordpress.org/Function_Reference/wp_register_script
      */
     'javascripts' => array(
-        'jquery'             => 'https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js',
-        //'jquery_cycle'       => get_bloginfo('template_directory').'/assets/js/jquery.cycle.all.min.js',
-        //'jquery_fancybox'    => get_bloginfo('template_directory').'/assets/js/jquery.fancybox-1.3.4.pack.js',
-        //'application'        => get_bloginfo('template_directory').'/assets/js/application.js',
+        'jquery'             => 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js',
+        'plugins'            => get_bloginfo('template_directory').'/assets/js/plugins.js',
+        'script'             => get_bloginfo('template_directory').'/assets/js/script.js'
     ),
 
 
@@ -86,18 +85,18 @@ $rye_config = array(
     'widgetized_regions' => array(
         /*
         array(
-            'name' => 'Sidebar',
-            'description' => 'The sidebar.',
-            'before_title' => '<h2>',
-            'after_title' => '</h2>',
+            'name'          => '<Region Name>',
+            'description'   => '<Region Description>',
+            'before_title'  => '<h2>',
+            'after_title'   => '</h2>',
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget'  => '</div>',
         ),
         array(
-            'name' => '',
-            'description' => '',
-            'before_title' => '<h2>',
-            'after_title' => '</h2>',
+            'name'          => '<Region Name>',
+            'description'   => '<Region Description>',
+            'before_title'  => '<h2>',
+            'after_title'   => '</h2>',
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget'  => '</div>',
         )
@@ -114,33 +113,33 @@ $rye_config = array(
      */
     'post_types' => array(
         /*
-        'some_type' => array(
-            'labels' => array('name' => 'Some Type'),
-            'public' => false,
+        'some_type'              => array(
+            'labels'             => array('name' => 'Some Type'),
+            'public'             => false,
             'publicly_queryable' => false,
-            'show_ui' => true, 
-            'show_in_menu' => true, 
-            'query_var' => true,
-            'rewrite' => true,
-            'capability_type' => 'post',
-            'has_archive' => true, 
-            'hierarchical' => false,
-            'menu_position' => 4,
-            'supports' => array('title','thumbnail','custom-fields')
+            'show_ui'            => true, 
+            'show_in_menu'       => true, 
+            'query_var'          => true,
+            'rewrite'            => true,
+            'capability_type'    => 'post',
+            'has_archive'        => true, 
+            'hierarchical'       => false,
+            'menu_position'      => 4,
+            'supports'           => array('title','thumbnail','custom-fields')
         ),
-        'some_type' => array(
-            'labels' => array('name' => 'Some Type'),
-            'public' => false,
+        'some_type'              => array(
+            'labels'             => array('name' => 'Some Type'),
+            'public'             => false,
             'publicly_queryable' => false,
-            'show_ui' => true, 
-            'show_in_menu' => true, 
-            'query_var' => true,
-            'rewrite' => true,
-            'capability_type' => 'post',
-            'has_archive' => true, 
-            'hierarchical' => false,
-            'menu_position' => 4,
-            'supports' => array('title','thumbnail','custom-fields')
+            'show_ui'            => true, 
+            'show_in_menu'       => true, 
+            'query_var'          => true,
+            'rewrite'            => true,
+            'capability_type'    => 'post',
+            'has_archive'        => true, 
+            'hierarchical'       => false,
+            'menu_position'      => 4,
+            'supports'           => array('title','thumbnail','custom-fields')
         ),
         */
     ),
@@ -157,21 +156,21 @@ $rye_config = array(
     'taxonomies' => array(
         /*
         array(
-            'writer', 'book', array(
-            'hierarchical' => false,
-            'labels' => array('name' => 'Writers'),
-            'show_ui' => true,
-            'query_var' => true,
-            'rewrite' => array('slug' => 'writer'),
+            'tax_name', 'postype_name', array(
+            'hierarchical'    => false,
+            'labels'          => array('name' => '<Tax Name>'),
+            'show_ui'         => true,
+            'query_var'       => true,
+            'rewrite'         => array('slug' => 'tax-name'),
             )
         ),
         array(
-            'writer', 'book', array(
-            'hierarchical' => false,
-            'labels' => array('name' => 'Writers'),
-            'show_ui' => true,
-            'query_var' => true,
-            'rewrite' => array('slug' => 'writer'),
+            'tax_name', 'postype_name', array(
+            'hierarchical'    => false,
+            'labels'          => array('name' => '<Tax Name>'),
+            'show_ui'         => true,
+            'query_var'       => true,
+            'rewrite'         => array('slug' => 'tax-name'),
             )
         ),
         */

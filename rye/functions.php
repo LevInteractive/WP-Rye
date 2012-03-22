@@ -13,33 +13,10 @@
 
 
 
-
-
 /**
- *  Optional. Add custom menu & post thumbnail support.
- *  http://codex.wordpress.org/Function_Reference/add_theme_support
- */
-// add_theme_support('post-thumbnails', array('post'));
-
-
-
-
-
-/**
- *  Add specific sizes for thumbnails.
- *  http://codex.wordpress.org/Function_Reference/add_image_size
- */
-// add_image_size('featured_article', 200, 170, true);
-
-
-
-
-
-/**
- *  Site Configurations.
+ *  Site configurations.
  */
 $rye_config = array(
-
     /**
      *  Place JavaScripts in footer. This tends to break some plugins that rely on
      *  jQuery in the header. Enable with caution.
@@ -49,19 +26,32 @@ $rye_config = array(
 
 
 
-
-
     /**
      *  Path to JavaScript files.
      *  http://codex.wordpress.org/Function_Reference/wp_register_script
      */
     'javascripts' => array(
-        'jquery'             => 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js',
-        'plugins'            => get_bloginfo('template_directory').'/assets/js/plugins.js',
-        'script'             => get_bloginfo('template_directory').'/assets/js/script.js'
+        /*
+        'jquery'  => 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js',
+        'plugins' => get_bloginfo('template_directory').'/assets/js/plugins.js',
+        'script'  => get_bloginfo('template_directory').'/assets/js/script.js'
+        */
     ),
-
-
+    
+    
+    
+    /**
+     *  Path to JavaScript files.
+     *  http://codex.wordpress.org/Function_Reference/add_image_size
+     *
+     *  '<image-size-name>' => array(<width>, <height>, <crop>)
+     */
+    'image_sizes' => array(
+        /*
+        'featured_post'    => array(500, 500, false),
+        'featured_article' => array(200, 200, true)
+        */
+    ),
 
 
 
@@ -70,11 +60,26 @@ $rye_config = array(
      *  http://codex.wordpress.org/Function_Reference/register_nav_menus
      */
     'menus' => array(
-        //'main-nav'    => 'Main Navigation',
-        //'sub-nav'     => 'Sub Navigation',
+        /*
+        'main-nav'    => 'Main Navigation',
+        'sub-nav'     => 'Sub Navigation',
+        */
     ),
+    
 
-
+    
+    /**
+     *  Declare Custom Menu Regions.
+     *  http://codex.wordpress.org/Function_Reference/register_nav_menus
+     *
+     *  '<feature>' => array('<arg>', '<arg>')
+     */
+    'theme_support' => array(
+        /*
+        'post-thumbnails' => array('post', 'articles'),
+        'post-formats'    => array('aside', 'gallery')
+        */
+    ),
 
 
 
@@ -102,9 +107,7 @@ $rye_config = array(
         )
         */
     ),
-
-
-
+    
 
 
     /**
@@ -113,7 +116,7 @@ $rye_config = array(
      */
     'post_types' => array(
         /*
-        'some_type'              => array(
+        'some_type' => array(
             'labels'             => array('name' => 'Some Type'),
             'public'             => false,
             'publicly_queryable' => false,
@@ -127,7 +130,7 @@ $rye_config = array(
             'menu_position'      => 4,
             'supports'           => array('title','thumbnail','custom-fields')
         ),
-        'some_type'              => array(
+        'some_type' => array(
             'labels'             => array('name' => 'Some Type'),
             'public'             => false,
             'publicly_queryable' => false,
@@ -140,12 +143,9 @@ $rye_config = array(
             'hierarchical'       => false,
             'menu_position'      => 4,
             'supports'           => array('title','thumbnail','custom-fields')
-        ),
+        )
         */
     ),
-
-
-
 
 
 
@@ -172,18 +172,10 @@ $rye_config = array(
             'query_var'       => true,
             'rewrite'         => array('slug' => 'tax-name'),
             )
-        ),
+        )
         */
     )
 );
-
-
-
-/**
- *  Hook the Rye initialization method with WordPress init.
- *  http://codex.wordpress.org/Function_Reference/add_action
- */
-add_action('init', '_rye_init');
 
 
 
@@ -196,21 +188,18 @@ function _rye_init($rye_config)
     global $rye_config;
     
     // Move all scripts to footer.
-    if ($rye_config['place_javascript_in_footer'])
-    {
+    if ($rye_config['place_javascript_in_footer']):
         remove_action('wp_head', 'wp_print_scripts');
         remove_action('wp_head', 'wp_print_head_scripts', 9);
         remove_action('wp_head', 'wp_enqueue_scripts', 1);
         add_action('wp_footer', 'wp_print_scripts', 5);
         add_action('wp_footer', 'wp_enqueue_scripts', 5);
         add_action('wp_footer', 'wp_print_head_scripts', 5);
-    }
+    endif;
     
     // Queue JavaScripts.
-    if ( ! is_admin()) 
-    {
-        foreach ($rye_config['javascripts'] as $name => $path)
-        {
+    if ( ! is_admin()):
+        foreach ($rye_config['javascripts'] as $name => $path):
             wp_deregister_script($name);
             
             wp_register_script($name, $path, array(), false, 
@@ -218,8 +207,8 @@ function _rye_init($rye_config)
             
             wp_enqueue_script($name, $path, array(), false, 
                 $rye_config['place_javascript_in_footer']);
-        }
-    }
+        endforeach;
+    endif;
     
     // Register Custom Menus.
     register_nav_menus($rye_config['menus']);
@@ -235,10 +224,22 @@ function _rye_init($rye_config)
     // Register Taxonomies.
     foreach($rye_config['taxonomies'] as $taxonomy)
         register_taxonomy($taxonomy[0], $taxonomy[1], $taxonomy[2]);
+        
+    // Register image sizes.
+    foreach($rye_config['image_sizes'] as $name => $args)
+        add_image_size($name, $args[0], $args[1], $args[2]);
+    
+    // Register theme support.
+    foreach($rye_config['theme_support'] as $name => $args)
+        add_theme_support($name, $args);
 }
 
 
-
+/**
+ *  Hook the Rye initialization method with WordPress init.
+ *  http://codex.wordpress.org/Function_Reference/add_action
+ */
+add_action('init', '_rye_init');
 
 
 
@@ -246,35 +247,37 @@ function _rye_init($rye_config)
 
 
 /**
- *  Helper Functions.
- *  Miscellaneous theme specific utility functions.
+ *  Helpers.
+ *  Miscellaneous theme specific utility methods & filters.
  */
 
 /**
  *  Filter text through the the_content filter. Userful outside the loop.
  *  http://codex.wordpress.org/Function_Reference/the_content#Alternative_Usage
+ *  
+ *  apply_filters('wp_content', $str);
  */
-function rye_the_contentify($str)
-{
-    $content = apply_filters('the_content', $str);
-    $content = str_replace(']]>', ']]&gt;', $content);
-    return $content;
-}
+add_filter('wp_content', function ($str) {
+     $content = apply_filters('the_content', $str);
+     $content = str_replace(']]>', ']]&gt;', $content);
+     return $content;
+}, 10, 1);
 
 
 /**
  *  Truncate text by words. Note: This also strips html tags.
  *  https://bitbucket.org/ellislab/codeigniter/src
+ *  
+ *  apply_filters('truncate_by_words', $longstr, 20, '...');
  */
-function rye_truncate_by_words($str, $limit = 100, $end_char = '&#8230;') 
-{
-    if (trim($str) == '') 
-        return strip_tags($str);
-    
-    preg_match('/^\s*+(?:\S++\s*+){1,'.(int) $limit.'}/', $str, $matches);
-    
-    if (strlen($str) == strlen($matches[0])) 
-        $end_char = '';
-    
-    return strip_tags(rtrim($matches[0]).$end_char);
-}
+add_filter('truncate_by_words', function ($str, $limit = 100, $end_char = '&#8230;') {
+     if (trim($str) == '') 
+         return strip_tags($str);
+
+     preg_match('/^\s*+(?:\S++\s*+){1,'.(int) $limit.'}/', $str, $matches);
+
+     if (strlen($str) == strlen($matches[0])) 
+         $end_char = '';
+
+     return strip_tags(rtrim($matches[0]).$end_char);
+}, 10, 3);

@@ -56,7 +56,7 @@ $rye_config = array(
 
 
     /**
-     *  Declare Custom Menu Regions.
+     *  Declare custom menu regions.
      *  http://codex.wordpress.org/Function_Reference/register_nav_menus
      */
     'menus' => array(
@@ -69,8 +69,8 @@ $rye_config = array(
 
     
     /**
-     *  Declare Custom Menu Regions.
-     *  http://codex.wordpress.org/Function_Reference/register_nav_menus
+     *  Declare theme features.
+     *  http://codex.wordpress.org/Function_Reference/add_theme_support
      *
      *  '<feature>' => array('<arg>', '<arg>')
      */
@@ -85,7 +85,7 @@ $rye_config = array(
 
 
     /**
-     *  Declare "Widgetized" Regions.
+     *  Declare "widgetized" regions.
      *  http://codex.wordpress.org/Function_Reference/register_sidebar
      */
     'widgetized_regions' => array(
@@ -112,7 +112,7 @@ $rye_config = array(
 
 
     /**
-     *  Declare Custom Post Types.
+     *  Declare custom post types.
      *  http://codex.wordpress.org/Function_Reference/register_post_type
      */
     'post_types' => array(
@@ -151,7 +151,7 @@ $rye_config = array(
 
 
     /**
-     *  Declare Custom Post Types.
+     *  Declare custom taxonomies.
      *  http://codex.wordpress.org/Function_Reference/register_taxonomy
      */
     'taxonomies' => array(

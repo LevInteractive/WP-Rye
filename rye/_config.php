@@ -76,6 +76,7 @@ $rye_config = array(
      */
     'theme_support' => array(
         /*
+        'html5'           => array('search-form', 'comment-form', 'comment-list'),
         'post-thumbnails' => array('post', 'articles'),
         'post-formats'    => array('aside', 'gallery')
         */
@@ -240,7 +241,3 @@ function _rye_init($rye_config)
  *  http://codex.wordpress.org/Function_Reference/add_action
  */
 add_action('init', '_rye_init');
-
-
-
-

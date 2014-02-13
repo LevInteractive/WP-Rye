@@ -1,0 +1,14 @@
+{
+  "name": "rye",
+  "version": "0.0.0",
+  "description": "A super simple, yet elegant starter theme for wordpress.",
+  "author": "Pete Saia",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-uglify": "~0.3.2",
+    "grunt-contrib-cssmin": "~0.7.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-watch": "~0.5.3"
+  }
+}

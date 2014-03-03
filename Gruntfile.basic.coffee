@@ -4,7 +4,7 @@ module.exports = (grunt) ->
     pkg: grunt.file.readJSON('package.json')
 
     # Create a name for files from the package name.
-    fileName: '<%= grunt.config.get("pkg").name.toLowerCase().replace(" ", "-") %>'
+    fileName: '<%= grunt.config.get("pkg").name.toLowerCase().replace(/ /g, "-") %>'
 
     # Configure properties to match your project's structure.
     cssFiles: ['assets/css/*.css']

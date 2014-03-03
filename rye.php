@@ -52,7 +52,7 @@ class Rye {
    * @return {void}
    */
   private static function register_scripts() {
-    if (self::$_config['place_javascript_in_footer']) {
+    if ( self::$_config['place_javascript_in_footer'] ) {
       remove_action('wp_head', 'wp_print_scripts');
       remove_action('wp_head', 'wp_print_head_scripts', 9);
       remove_action('wp_head', 'wp_enqueue_scripts', 1);
@@ -61,8 +61,8 @@ class Rye {
       add_action('wp_footer', 'wp_print_head_scripts', 5);
     }
 
-    if ( ! is_admin()) {
-      foreach (self::$_config['javascripts'] as $name => $path) {
+    if ( ! is_admin() ) {
+      foreach ( self::$_config['javascripts'] as $name => $path ) {
         wp_deregister_script($name);
         wp_register_script($name, $path, array(), false, self::$_config['place_javascript_in_footer']);
         wp_enqueue_script($name, $path, array(), false, self::$_config['place_javascript_in_footer']);
@@ -75,7 +75,7 @@ class Rye {
    * @return {void}
    */
   private static function register_regions() {
-    foreach (self::$_config['widgetized_regions'] as $region) {
+    foreach ( self::$_config['widgetized_regions'] as $region ) {
       register_sidebar($region);
     }
   }
@@ -85,7 +85,7 @@ class Rye {
    * @return {void}
    */
   private static function register_taxonomies() {
-    foreach(self::$_config['taxonomies'] as $taxonomy) {
+    foreach ( self::$_config['taxonomies'] as $taxonomy ) {
       register_taxonomy($taxonomy[0], $taxonomy[1], $taxonomy[2]);
     }
   }
@@ -95,7 +95,7 @@ class Rye {
    * @return {void}
    */
   private static function register_post_types() {
-    foreach (self::$_config['post_types'] as $name => $type) {
+    foreach ( self::$_config['post_types'] as $name => $type ) {
       register_post_type($name, $type);
     }
   }
@@ -105,7 +105,7 @@ class Rye {
    * @return {void}
    */
   private static function register_image_sizes() {
-    foreach(self::$_config['image_sizes'] as $name => $args) {
+    foreach ( self::$_config['image_sizes'] as $name => $args ) {
       add_image_size($name, $args[0], $args[1], $args[2]);
     }
   }
@@ -115,7 +115,7 @@ class Rye {
    * @return {void}
    */
   private static function add_theme_support() {
-    foreach(self::$_config['theme_support'] as $name => $args) {
+    foreach ( self::$_config['theme_support'] as $name => $args ) {
       add_theme_support($name, $args);
     }
   }

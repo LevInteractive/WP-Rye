@@ -12,7 +12,7 @@ Rye::init(array(
 
   /**
    *  Place JavaScripts in footer. This tends to break some plugins that rely on
-   *  jQuery in the header. Enable with caution.
+   *  jQuery in the header. Enable with caution (even though it's recommended).
    *  http://developer.yahoo.com/performance/rules.html#js_bottom
    */
   'place_javascript_in_footer' => false,
@@ -167,11 +167,13 @@ Rye::init(array(
   )
 ));
 
+// Set the enviornment property. If in production the scripts and styles
+// will be minified.
+// Rye::$enviornment = Rye::PRODUCTION;
 
-/**
- *  Filters.
- *  Miscellaneous theme specific utility filters.
- */
+
+// Filters.
+// Miscellaneous theme specific utility filters.
 
 /**
  *  Filter text through the the_content filter. Userful outside the loop.

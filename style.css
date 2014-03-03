@@ -1,8 +1,10 @@
 /*
-Theme Name: Rye
-Theme URI: https://github.com/petesaia/WP-Rye
-Description: The developer's WordPress starter theme.
-Author: Pete Saia
-Version: 1
-Tags: html5, rye, clean, basic, semantic, starter
-*/
+ * Theme Name: Rye
+ * Theme URI: https://github.com/petesaia/WP-Rye
+ * Description: The developer's WordPress starter theme.
+ * Author: Pete Saia
+ * Version: 1
+ * Tags: html5, rye, clean, basic, semantic, starter, grunt, stylus, coffeescript
+ */
+
+/* It's recommended that styles are put in assets/css/*, not here. */

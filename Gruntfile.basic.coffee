@@ -1,8 +1,10 @@
 module.exports = (grunt) ->
   grunt.initConfig
-    
     # Import the package.json file for name ref.
     pkg: grunt.file.readJSON('package.json')
+
+    # Create a name for files from the package name.
+    fileName: '<%= grunt.config.get("pkg").name.toLowerCase().replace(" ", "-") %>'
 
     # Configure properties to match your project's structure.
     cssFiles: ['assets/css/*.css']
@@ -12,24 +14,24 @@ module.exports = (grunt) ->
     # Tasks. Feel free to customize.
     concat:
       options:
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        banner: '/*! <%= fileName %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
         stripBanners: true
       js:
         src: '<%= jsFiles %>'
-        dest: '<%= distDir %><%= pkg.name %>.all.js'
+        dest: '<%= distDir %><%= fileName %>.all.js'
       css:
         src: '<%= cssFiles %>'
-        dest: '<%= distDir %><%= pkg.name %>.all.css'
+        dest: '<%= distDir %><%= fileName %>.all.css'
     uglify:
       options:
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        banner: '/*! <%= fileName %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       build:
-        src: '<%= distDir %><%= pkg.name %>.all.js'
-        dest: '<%= distDir %><%= pkg.name %>.all.min.js'
+        src: '<%= distDir %><%= fileName %>.all.js'
+        dest: '<%= distDir %><%= fileName %>.all.min.js'
     cssmin:
       build:
-        src: '<%= distDir %><%= pkg.name %>.all.css'
-        dest: '<%= distDir %><%= pkg.name %>.all.min.css'
+        src: '<%= distDir %><%= fileName %>.all.css'
+        dest: '<%= distDir %><%= fileName %>.all.min.css'
     watch:
       js:
         files: '<%= jsFiles %>'

@@ -20,10 +20,16 @@ Rye::init(array(
 
 
   /**
-   *  Path to JavaScript files.
+   *  Path to JavaScript files. Notice that vendor libraries are left separate
+   *  from the custom compiled script. This allows for better compatibility with
+   *  other plugins.
    *  http://codex.wordpress.org/Function_Reference/wp_register_script
    */
   'javascripts' => array(
+    // 'jquery' => '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js',
+    // Other
+    // libraries
+    // here.
     'main' => get_bloginfo('template_directory').'/assets/dist/'.Rye::project_name().'.all.min.js'
   ),
   

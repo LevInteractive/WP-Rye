@@ -146,6 +146,6 @@ class Rye {
 
     // Hook the Rye initialization method with WordPress init.
     // http://codex.wordpress.org/Function_Reference/add_action
-    add_action('init', array(Rye, '_init'));
+    add_action('init', array('Rye', '_init'));
   }
 }

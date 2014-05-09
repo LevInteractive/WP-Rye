@@ -31,13 +31,13 @@ module.exports = (grunt) ->
         options:
           compress: true,
         files: {
-          '<%= distDir %><%= fileName %>.all.min.css': ['assets/less/*.less']
+          '<%= distDir %><%= fileName %>.all.min.css': '<%= lessFiles %>'
         }
       uncompressed:
         options:
           compress: false
         files:
-          '<%= distDir %><%= fileName %>.all.css': ['assets/less/*.less']
+          '<%= distDir %><%= fileName %>.all.css': '<%= lessFiles %>'
     watch:
       js:
         files: '<%= jsFiles %>'

@@ -1,3 +1,6 @@
+# This configuration is for when you are just working with basic css & js files with
+# no pre-processor(s) necessary.
+
 module.exports = (grunt) ->
   grunt.initConfig
     # Import the package.json file for name ref.

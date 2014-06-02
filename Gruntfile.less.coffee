@@ -1,3 +1,8 @@
+# Use this configuration when working with LESS.
+#
+# Setup:
+# Add app.less to assets/css.
+
 module.exports = (grunt) ->
   grunt.initConfig
     # Import the package.json file for name ref.
@@ -7,7 +12,7 @@ module.exports = (grunt) ->
     fileName: '<%= grunt.config.get("pkg").name.toLowerCase().replace(/ /g, "-") %>'
 
     # Import all vendor and app specific javascripts.
-    jsFiles: ['assets/js/vendor/*.js', 'assets/js/*js']
+    jsFiles: ['assets/js/*js']
 
     # This file will contain includes, so this is the only file needed.
     cssFiles: ['assets/css/app.less']

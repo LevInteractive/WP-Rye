@@ -6,6 +6,18 @@ require_once 'rye.php';
 
 
 /**
+ * Set the enviornment property. If in production the scripts and styles.
+ */
+
+// Will use compressed version of assets.
+// Rye::$enviornment = Rye::PRODUCTION;
+
+// Will use un-compressed version of assets.
+// Rye::$enviornment = Rye::STAGING;
+Rye::$enviornment = Rye::DEVELOPMENT;
+
+
+/**
  *  Site configurations.
  */
 Rye::init(array(
@@ -27,9 +39,6 @@ Rye::init(array(
    */
   'javascripts' => array(
     // 'jquery' => '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js',
-    // Other
-    // libraries
-    // here.
     'main' => get_bloginfo('template_directory').'/assets/dist/'.Rye::project_name().'.all.min.js'
   ),
   
@@ -172,10 +181,6 @@ Rye::init(array(
     */
   )
 ));
-
-// Set the enviornment property. If in production the scripts and styles
-// will be minified.
-// Rye::$enviornment = Rye::PRODUCTION;
 
 
 // Filters.

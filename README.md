@@ -9,10 +9,32 @@ The objective of Rye is to save you time and effort when creating a WordPress si
 1. cd to the theme's root directory.
 2. `npm install` and the grunt plugins will be installed.
 3. Edit the package.json file. Make it your own. The project name will be used to set the name for the compiled asset files. The json file will also be accessable throughout your project by calling `Rye::package()`, which will return a php object.
-4. Add asset files in the assets directory. Add as many as you'd like since they will be concatenated and minified anyways.
-5. Change the name of one of the Gruntfile examples to `Gruntfile.coffee`.
+4. Change the name of one of the Gruntfile examples to `Gruntfile.coffee`.
+
+#### Project Structure
+
+`assets/`: Project assets are added here. Once, grunted js and css files will be concatenated and minified into the dist directory.
 
 _Running `grunt` at any time will build your assets. For convience, run `grunt watch` and your files will be compiled automatically as you edit them._
+
+##### Gruntfile.basic
+
+This configuration is for when you are just working with basic css & js files with no pre-processor(s) necessary.
+
+1. No setup needed.
+
+##### Gruntfile.stylus
+
+This configuration is for when you're using stylus for your pre-processor.
+
+1. Create a *app.styl* file in assets/css. All other stylus files can be included here.
+
+##### Gruntfile.less
+
+This configuration is for when you're using less for your pre-processor.
+
+1. Create a *app.less* file in assets/css. All other stylus files can be included here.
+
 
 #### TODO's
 

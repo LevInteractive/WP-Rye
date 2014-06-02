@@ -2,7 +2,7 @@
 
 The objective of Rye is to save you time and effort when creating a WordPress site and dosen't make any assumptions about the technology you want to use. The themes that come with WordPress are a great reference, but not a great starter theme. Rye makes it easy to stub out your entire site using the configuration array inside the functions.php file. Enjoy.
 
-#### Getting started.
+### Getting started.
 
 *Please make sure you have [npm](https://www.npmjs.org/) and [grunt](http://gruntjs.com/) installed globally.*
 
@@ -11,7 +11,7 @@ The objective of Rye is to save you time and effort when creating a WordPress si
 3. Edit the package.json file. Make it your own. The project name will be used to set the name for the compiled asset files. The json file will also be accessable throughout your project by calling `Rye::package()`, which will return a php object.
 4. Change the name of one of the Gruntfile examples to `Gruntfile.coffee`.
 
-#### Project Structure
+### Project Structure
 
 `assets/`: Project assets are added here. Once, grunted js and css files will be concatenated and minified into the dist directory.
 

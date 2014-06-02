@@ -49,6 +49,9 @@ You should rename one of these to Gruntfile.coffee or roll out your own.
 
 `Gruntfile.less.coffee`: This configuration is for when you're using less for your pre-processor. Create a *app.less* file in assets/css. All other stylus files can be included here.
 
+### Recommendations
+
+* [Advanced Custom Fields](http://www.advancedcustomfields.com/)
 
 # @TODO's
 

@@ -33,7 +33,7 @@ _Running `grunt` at any time will build your assets. For convience, run `grunt w
 
 `style.css`: This shouldn't be used. It's only required to specify information about the theme for WordPress.
 
-`assets/css`: Any css or pre-processor css file such as .styl or .less files should be included here. The main entry file should be called *app.<type>*.
+`assets/css`: Any css or pre-processor css file such as .styl or .less files should be included here. The main entry file should be called *app.(type)*.
 
 `assets/js`: App specific JavaScripts should be added here. After Grunting thing will compiled into `assets/dist`.
 

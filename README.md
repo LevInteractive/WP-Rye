@@ -1,4 +1,4 @@
-#### Rye.
+# Rye.
 
 The objective of Rye is to save you time and effort when creating a WordPress site and dosen't make any assumptions about the technology you want to use. The themes that come with WordPress are a great reference, but not a great starter theme. Rye makes it easy to stub out your entire site using the configuration array inside the functions.php file. Enjoy.
 
@@ -36,6 +36,6 @@ This configuration is for when you're using less for your pre-processor.
 1. Create a *app.less* file in assets/css. All other stylus files can be included here.
 
 
-#### TODO's
+# @TODO's
 
 * Add more Gruntfile flavors.

@@ -17,36 +17,27 @@ _Running `grunt` at any time will build your assets. For convience, run `grunt w
 
 * [Rye::package()](rye.php#L24) The package.json file as a php object.
 * [Rye::project_name()](rye.php#L32) Returns sanitized name specified in the package.json file.
-
-`Rye::$enviornment`: A static property which tells Rye which enviornment to run in. This is in the functions.php file for you. It can be assigned to 1 of 4 constants; `Rye::TESTING`, `Rye::DEVELOPMENT`, `Rye::STAGING`, or `Rye::PRODUCTION`.
-
-`Rye::stylesheet()`: Outputs style tags using the appropriate css file based on the enviornment property.
-
-`Rye::init()`: This is the bootstrap method for Rye and is already in the functions.php file. It should only be called once.
+* [Rye::$enviornment](rye.php#L13) A static property which tells Rye which enviornment to run in. This is in the functions.php file for you. It can be assigned to 1 of 4 constants; `Rye::TESTING`, `Rye::DEVELOPMENT`, `Rye::STAGING`, or `Rye::PRODUCTION`.
+* [Rye::stylesheet()](rye.php#L41) Outputs style tags using the appropriate css file based on the enviornment property.
+* [Rye::init()](rye.php#L143) This is the bootstrap method for Rye and is already in the functions.php file. It should only be called once.
 
 ### Project Architecture
 
-`rye.php`: This is the Rye core. No need to ever touch this.  
 
-`functions.php`: The main rye configuration array lives here. Before doing any front-end work, layout the entire site here.
-
-`style.css`: This shouldn't be used. It's only required to specify information about the theme for WordPress.
-
+* [rye.php](rye.php) This is the Rye core. No need to ever touch this.
+* [functions.php](functions.php) The main rye configuration array lives here. Before doing any front-end work, layout the entire site here.
+* [style.css](style.css) This shouldn't be used. It's only required to specify information about the theme for WordPress.
 `assets/css`: Any css or pre-processor css file such as .styl or .less files should be included here. The main entry file should be called *app.(type)*.
-
-`assets/js`: App specific JavaScripts should be added here. After Grunting thing will compiled into `assets/dist`.
-
-`assets/js/vendor`: These files don't get compiled after grunting. They should be specified in the functions.php file (in the Rye config array) so WordPress is aware of them. This will eliminate any chance of duplicate libraries being added after installing plugins.
+* [assets/js](assets/js)`assets/js`: App specific JavaScripts should be added here. After Grunting thing will compiled into `assets/dist`.
+* [assets/js/vendor](assets/js/vendor) These files don't get compiled after grunting. They should be specified in the functions.php file (in the Rye config array) so WordPress is aware of them. This will eliminate any chance of duplicate libraries being added after installing plugins.
 
 ### Gruntfiles
 
 You should rename one of these to Gruntfile.coffee or roll out your own.
 
-`Gruntfile.basic.coffee`: This configuration is for when you are just working with basic css & js files with no pre-processor(s) necessary. No setup needed.
-
-`Gruntfile.stylus.coffee`: This configuration is for when you're using stylus for your pre-processor. Create a *app.styl* file in assets/css. All other stylus files can be included here.
-
-`Gruntfile.less.coffee`: This configuration is for when you're using less for your pre-processor. Create a *app.less* file in assets/css. All other stylus files can be included here.
+* [Gruntfile.basic.coffee](Gruntfile.basic.coffee) This configuration is for when you are just working with basic css & js files with no pre-processor(s) necessary. No setup needed.
+* [Gruntfile.stylus.coffee](Gruntfile.stylus.coffee) This configuration is for when you're using stylus for your pre-processor. Create a *app.styl* file in assets/css. All other stylus files can be included here.
+* [Gruntfile.less.coffee](Gruntfile.less.coffee) This configuration is for when you're using less for your pre-processor. Create a *app.less* file in assets/css. All other stylus files can be included here.
 
 ### Plugin Recommendations
 

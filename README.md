@@ -21,8 +21,8 @@ _Running `grunt` at any time will build your assets. For convience, run `grunt w
 `Rye::stylesheet()`: Outputs style tags using the appropriate css file based on the enviornment property.  
 `Rye::init()`: This is the bootstrap method for Rye and is already in the functions.php file. It should only be called once.
 
-
 ### Project Structure
+
 `rye.php`: This is the Rye core. No need to ever touch this.  
 `functions.php`: The main rye configuration array lives here. Before doing any front-end work, layout the entire site here.  
 `style.css`: This shouldn't be used. It's only required to specify information about the theme for WordPress.  
@@ -31,23 +31,15 @@ _Running `grunt` at any time will build your assets. For convience, run `grunt w
 `assets/js/vendor`: These files don't get compiled after grunting. They should be specified in the functions.php file (in the Rye config array) so WordPress is aware of them. This will eliminate any chance of duplicate libraries being added after installing plugins.  
 
 
-##### Gruntfile.basic
+### Gruntfiles
 
-This configuration is for when you are just working with basic css & js files with no pre-processor(s) necessary.
+You should rename one of these to Gruntfile.coffee or roll out your own.
 
-1. No setup needed.
+`Gruntfile.basic.coffee`: This configuration is for when you are just working with basic css & js files with no pre-processor(s) necessary. No setup needed.
 
-##### Gruntfile.stylus
+`Gruntfile.stylus.coffee`: This configuration is for when you're using stylus for your pre-processor. Create a *app.styl* file in assets/css. All other stylus files can be included here.
 
-This configuration is for when you're using stylus for your pre-processor.
-
-1. Create a *app.styl* file in assets/css. All other stylus files can be included here.
-
-##### Gruntfile.less
-
-This configuration is for when you're using less for your pre-processor.
-
-1. Create a *app.less* file in assets/css. All other stylus files can be included here.
+`Gruntfile.less.coffee`: This configuration is for when you're using less for your pre-processor. Create a *app.less* file in assets/css. All other stylus files can be included here.
 
 
 # @TODO's

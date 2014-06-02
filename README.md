@@ -49,7 +49,7 @@ You should rename one of these to Gruntfile.coffee or roll out your own.
 
 `Gruntfile.less.coffee`: This configuration is for when you're using less for your pre-processor. Create a *app.less* file in assets/css. All other stylus files can be included here.
 
-### Recommendations
+### Plugin Recommendations
 
 * [Advanced Custom Fields](http://www.advancedcustomfields.com/) Great for making the CMS user-friendly for data driven websites.
 * [W3 Total Cache](https://wordpress.org/plugins/w3-total-cache/) Makes using CDN's very easy, amongst other techniques.

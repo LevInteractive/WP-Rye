@@ -15,7 +15,7 @@ _Running `grunt` at any time will build your assets. For convience, run `grunt w
 
 ### Rye globals.
 
-* [Rye::package()](rye.php#L24) The package.json file as a php object.
+* [Rye::package()](rye.php#L24): The package.json file as a php object.
 * [Rye::project_name()](rye.php#L32) Returns sanitized name specified in the package.json file.
 * [Rye::$enviornment](rye.php#L13) A static property which tells Rye which enviornment to run in. This is in the functions.php file for you. It can be assigned to 1 of 4 constants; `Rye::TESTING`, `Rye::DEVELOPMENT`, `Rye::STAGING`, or `Rye::PRODUCTION`.
 * [Rye::stylesheet()](rye.php#L41) Outputs style tags using the appropriate css file based on the enviornment property.
@@ -28,7 +28,7 @@ _Running `grunt` at any time will build your assets. For convience, run `grunt w
 * [functions.php](functions.php) The main rye configuration array lives here. Before doing any front-end work, layout the entire site here.
 * [style.css](style.css) This shouldn't be used. It's only required to specify information about the theme for WordPress.
 `assets/css`: Any css or pre-processor css file such as .styl or .less files should be included here. The main entry file should be called *app.(type)*.
-* [assets/js](assets/js)`assets/js`: App specific JavaScripts should be added here. After Grunting thing will compiled into `assets/dist`.
+* [assets/js](assets/js) App specific JavaScripts should be added here. After Grunting thing will compiled into `assets/dist`.
 * [assets/js/vendor](assets/js/vendor) These files don't get compiled after grunting. They should be specified in the functions.php file (in the Rye config array) so WordPress is aware of them. This will eliminate any chance of duplicate libraries being added after installing plugins.
 
 ### Gruntfiles.

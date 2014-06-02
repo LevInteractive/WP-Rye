@@ -15,9 +15,8 @@ _Running `grunt` at any time will build your assets. For convience, run `grunt w
 
 ### Globals
 
-`Rye::package()`: The package.json file as a php object.
-
-`Rye::project_name()`: Returns sanitized name specified in the package.json file.
+* [Rye::package()](rye.php#L24) The package.json file as a php object.
+* [Rye::project_name()](rye.php#L32) Returns sanitized name specified in the package.json file.
 
 `Rye::$enviornment`: A static property which tells Rye which enviornment to run in. This is in the functions.php file for you. It can be assigned to 1 of 4 constants; `Rye::TESTING`, `Rye::DEVELOPMENT`, `Rye::STAGING`, or `Rye::PRODUCTION`.
 

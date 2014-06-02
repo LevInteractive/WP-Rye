@@ -51,7 +51,10 @@ You should rename one of these to Gruntfile.coffee or roll out your own.
 
 ### Recommendations
 
-* [Advanced Custom Fields](http://www.advancedcustomfields.com/)
+* [Advanced Custom Fields](http://www.advancedcustomfields.com/) Great for making the CMS user-friendly for data driven websites.
+* [W3 Total Cache](https://wordpress.org/plugins/w3-total-cache/) Makes using CDN's very easy, amongst other techniques.
+* [Contact Form 7](http://wordpress.org/plugins/contact-form-7/) Great for creating forms using the CMS.
+* [Yoast SEO Plugin](https://yoast.com/wordpress/plugins/seo/) Gives you total control over meta tagging and dynamic page titles.
 
 # @TODO's
 

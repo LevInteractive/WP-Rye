@@ -6,10 +6,13 @@ module.exports = (grunt) ->
     # Create a name for files from the package name.
     fileName: '<%= grunt.config.get("pkg").name.toLowerCase().replace(/ /g, "-") %>'
 
-    # Configure properties to match your project's structure.
+    # Import all vendor and app specific javascripts.
     jsFiles: ['assets/js/vendor/*.js', 'assets/js/*js']
-    cssFiles: ['assets/css/*.styl']
-    lessFiles: ['assets/less/*.less']
+
+    # This file will contain includes, so this is the only file needed.
+    cssFiles: ['assets/css/app.less']
+
+    # Where the compiled assets will live.
     distDir: 'assets/dist/'
 
     # Tasks. Feel free to customize.
@@ -31,19 +34,19 @@ module.exports = (grunt) ->
         options:
           compress: true,
         files: {
-          '<%= distDir %><%= fileName %>.all.min.css': '<%= lessFiles %>'
+          '<%= distDir %><%= fileName %>.all.min.css': '<%= cssFiles %>'
         }
       uncompressed:
         options:
           compress: false
         files:
-          '<%= distDir %><%= fileName %>.all.css': '<%= lessFiles %>'
+          '<%= distDir %><%= fileName %>.all.css': '<%= cssFiles %>'
     watch:
       js:
         files: '<%= jsFiles %>'
         tasks: ['concat:js', 'uglify']
       less:
-        files: '<%= lessFiles %>'
+        files: '<%= cssFiles %>'
         tasks: ['less']
 
   grunt.loadNpmTasks('grunt-contrib-concat')

@@ -6,9 +6,13 @@ module.exports = (grunt) ->
     # Create a name for files from the package name.
     fileName: '<%= grunt.config.get("pkg").name.toLowerCase().replace(/ /g, "-") %>'
 
-    # Configure properties to match your project's structure.
+    # Import all vendor and app specific javascripts.
     jsFiles: ['assets/js/vendor/*.js', 'assets/js/*js']
-    cssFiles: ['assets/css/*.styl']
+
+    # This file will contain includes, so this is the only file needed.
+    cssFiles: ['assets/css/app.styl']
+
+    # Where the compiled assets will live.
     distDir: 'assets/dist/'
 
     # Tasks. Feel free to customize.
@@ -32,7 +36,7 @@ module.exports = (grunt) ->
           paths: ['assets/css/']
           "include css": true
         files:
-          '<%= distDir %><%= fileName %>.all.min.css': ['assets/css/*.styl']
+          '<%= distDir %><%= fileName %>.all.min.css': ['<%= cssFiles %>']
       uncompressed:
         options:
           compress: false
@@ -40,7 +44,7 @@ module.exports = (grunt) ->
           paths: ['assets/css/']
           "include css": true
         files:
-          '<%= distDir %><%= fileName %>.all.css': ['assets/css/*.styl']
+          '<%= distDir %><%= fileName %>.all.css': ['<%= cssFiles %>']
     watch:
       js:
         files: '<%= jsFiles %>'

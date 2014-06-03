@@ -27,7 +27,7 @@ _Running `grunt` at any time will build your assets. For convience, run `grunt w
 * [rye.php](rye.php) This is the Rye core. No need to ever touch this.
 * [functions.php](functions.php) The main rye configuration array lives here. Before doing any front-end work, layout the entire site here.
 * [style.css](style.css) This shouldn't be used. It's only required to specify information about the theme for WordPress.
-`assets/css`: Any css or pre-processor css file such as .styl or .less files should be included here. The main entry file should be called *app.(type)*.
+* [assets/css](assets/css) Any css or pre-processor css file such as .styl or .less files should be included here. The main entry file should be called *app.(type)*.
 * [assets/js](assets/js) App specific JavaScripts should be added here. After Grunting thing will compiled into `assets/dist`.
 * [assets/js/vendor](assets/js/vendor) These files don't get compiled after grunting. They should be specified in the functions.php file (in the Rye config array) so WordPress is aware of them. This will eliminate any chance of duplicate libraries being added after installing plugins.
 

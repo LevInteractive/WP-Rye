@@ -23,15 +23,6 @@ Rye::$enviornment = Rye::DEVELOPMENT;
 Rye::init(array(
 
   /**
-   *  Place JavaScripts in footer. This tends to break some plugins that rely on
-   *  jQuery in the header. Enable with caution (even though it's recommended).
-   *  http://developer.yahoo.com/performance/rules.html#js_bottom
-   */
-  'place_javascript_in_footer' => false,
-
-
-
-  /**
    *  Path to JavaScript files. Notice that vendor libraries are left separate
    *  from the custom compiled script. This allows for better compatibility with
    *  other plugins.
@@ -122,32 +113,11 @@ Rye::init(array(
   'post_types' => array(
     /*
     'some_type' => array(
-      'labels'     => array('name' => 'Some Type'),
-      'public'     => false,
-      'publicly_queryable' => false,
-      'show_ui'    => true, 
-      'show_in_menu'   => true, 
-      'query_var'    => true,
-      'rewrite'    => true,
-      'capability_type'  => 'post',
-      'has_archive'  => true, 
-      'hierarchical'   => false,
-      'menu_position'  => 4,
-      'supports'     => array('title','thumbnail','custom-fields')
-    ),
-    'some_type' => array(
-      'labels'     => array('name' => 'Some Type'),
-      'public'     => false,
-      'publicly_queryable' => false,
-      'show_ui'    => true, 
-      'show_in_menu'   => true, 
-      'query_var'    => true,
-      'rewrite'    => true,
-      'capability_type'  => 'post',
-      'has_archive'  => true, 
-      'hierarchical'   => false,
-      'menu_position'  => 4,
-      'supports'     => array('title','thumbnail','custom-fields')
+      'labels'             => array('name' => 'Some Type'),
+      'publicly_queryable' => true,
+      'rewrite'            => true,
+      'has_archive'        => true, 
+      'supports'           => array('title','thumbnail','custom-fields')
     )
     */
   ),
@@ -162,20 +132,11 @@ Rye::init(array(
     /*
     array(
       'tax_name', 'postype_name', array(
-      'hierarchical'  => false,
-      'labels'    => array('name' => '<Tax Name>'),
-      'show_ui'   => true,
-      'query_var'   => true,
-      'rewrite'   => array('slug' => 'tax-name'),
-      )
-    ),
-    array(
-      'tax_name', 'postype_name', array(
-      'hierarchical'  => false,
-      'labels'    => array('name' => '<Tax Name>'),
-      'show_ui'   => true,
-      'query_var'   => true,
-      'rewrite'   => array('slug' => 'tax-name'),
+        'hierarchical' => false,
+        'labels'       => array('name' => '<Tax Name>'),
+        'show_ui'      => true,
+        'query_var'    => true,
+        'rewrite'     => array('slug' => 'tax-name'),
       )
     )
     */

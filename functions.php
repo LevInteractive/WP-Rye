@@ -1,24 +1,26 @@
 <?php
-/**
- *  Include Rye.
- */
 require_once 'rye.php';
 
-
 /**
- * Set the enviornment property. If in production the scripts and styles.
+ * Set domains for auto tag detection.
  */
-
-// Will use compressed version of assets.
-// Rye::$enviornment = Rye::PRODUCTION;
-
-// Will use un-compressed version of assets.
-// Rye::$enviornment = Rye::STAGING;
-Rye::$enviornment = Rye::DEVELOPMENT;
-
+define("PRODUCTION_SERVER", "my-production-site.com");
+define("STAGING_SERVER", "my-staging-site.com");
 
 /**
- *  Site configurations.
+ * Set the enviornment property. This will determine which version of the
+ * assets will be used.
+ */
+if ( stripos($_SERVER['SERVER_NAME'], PRODUCTION_SERVER) ) {
+  Rye::$enviornment = Rye::PRODUCTION;
+} else if ( stripos($_SERVER['SERVER_NAME'], STAGING_SERVER) ) {
+  Rye::$enviornment = Rye::STAGING;
+} else {
+  Rye::$enviornment = Rye::DEVELOPMENT;
+}
+
+/**
+ * Site configurations.
  */
 Rye::init(array(
 
@@ -30,11 +32,10 @@ Rye::init(array(
    */
   'javascripts' => array(
     // 'jquery' => '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js',
-    'main' => get_bloginfo('template_directory').'/assets/dist/'.Rye::project_name().'.all.min.js'
+    'main' => get_bloginfo('template_directory').'/assets/dist/'.Rye::project_name().'.all'.
+      ((Rye::$enviornment < Rye::STAGING) ? '.min' : '').'.js'
   ),
-  
-  
-  
+
   /**
    *  Path to JavaScript files.
    *  http://codex.wordpress.org/Function_Reference/add_image_size
@@ -48,21 +49,17 @@ Rye::init(array(
     */
   ),
 
-
-
   /**
    *  Declare custom menu regions.
    *  http://codex.wordpress.org/Function_Reference/register_nav_menus
    */
   'menus' => array(
     /*
-    'main-nav'  => 'Main Navigation',
-    'sub-nav'   => 'Sub Navigation',
+    'main-nav' => 'Main Navigation',
+    'sub-nav'  => 'Sub Navigation',
     */
   ),
-  
 
-  
   /**
    *  Declare theme features.
    *  http://codex.wordpress.org/Function_Reference/add_theme_support
@@ -71,13 +68,11 @@ Rye::init(array(
    */
   'theme_support' => array(
     /*
-    'html5'     => array('search-form', 'comment-form', 'comment-list'),
+    'html5'           => array('search-form', 'comment-form', 'comment-list'),
     'post-thumbnails' => array('post', 'articles'),
-    'post-formats'  => array('aside', 'gallery')
+    'post-formats'    => array('aside', 'gallery')
     */
   ),
-
-
 
   /**
    *  Declare "widgetized" regions.
@@ -86,7 +81,7 @@ Rye::init(array(
   'widgetized_regions' => array(
     /*
     array(
-      'name'    => '<Region Name>',
+      'name'          => '<Region Name>',
       'description'   => '<Region Description>',
       'before_title'  => '<h2>',
       'after_title'   => '</h2>',
@@ -94,7 +89,7 @@ Rye::init(array(
       'after_widget'  => '</div>',
     ),
     array(
-      'name'    => '<Region Name>',
+      'name'          => '<Region Name>',
       'description'   => '<Region Description>',
       'before_title'  => '<h2>',
       'after_title'   => '</h2>',
@@ -103,8 +98,6 @@ Rye::init(array(
     )
     */
   ),
-  
-
 
   /**
    *  Declare custom post types.
@@ -113,16 +106,14 @@ Rye::init(array(
   'post_types' => array(
     /*
     'some_type' => array(
-      'labels'             => array('name' => 'Some Type'),
-      'publicly_queryable' => true,
-      'rewrite'            => true,
-      'has_archive'        => true, 
-      'supports'           => array('title','thumbnail','custom-fields')
+      'labels'      => array('name' => 'Some Type'),
+      'public'      => true,
+      'rewrite'     => true,
+      'has_archive' => true,
+      'supports'    => array('title', 'thumbnail', 'editor')
     )
     */
   ),
-
-
 
   /**
    *  Declare custom taxonomies.
@@ -136,51 +127,17 @@ Rye::init(array(
         'labels'       => array('name' => '<Tax Name>'),
         'show_ui'      => true,
         'query_var'    => true,
-        'rewrite'     => array('slug' => 'tax-name'),
+        'rewrite'      => array('slug' => 'tax-name'),
       )
     )
     */
   )
 ));
 
-
-// Filters.
-// Miscellaneous theme specific utility filters.
-
-/**
- *  Filter text through the the_content filter. Userful outside the loop.
- *  http://codex.wordpress.org/Function_Reference/the_content#Alternative_Usage
- *  
- *  apply_filters('wp_content', $str);
- */
-add_filter('wp_content', function ($str) {
-   $content = apply_filters('the_content', $str);
-   $content = str_replace(']]>', ']]&gt;', $content);
-   return $content;
-}, 10, 1);
-
-
-/**
- *  Truncate text by words. Note: This also strips html tags.
- *  https://bitbucket.org/ellislab/codeigniter/src
- *  
- *  apply_filters('truncate_by_words', $longstr, 20, '...');
- */
-add_filter('truncate_by_words', function ($str, $limit = 100, $end_char = '&#8230;') {
-   if (trim($str) == '') 
-     return strip_tags($str);
-
-   preg_match('/^\s*+(?:\S++\s*+){1,'.(int) $limit.'}/', $str, $matches);
-
-   if (strlen($str) == strlen($matches[0])) 
-     $end_char = '';
-
-   return strip_tags(rtrim($matches[0]).$end_char);
-}, 10, 3);
-
-
 /**
  *  Theme specific methods.
  *  Other methods which make the theme function.
  */
-
+class MyProject {
+  // ...
+}

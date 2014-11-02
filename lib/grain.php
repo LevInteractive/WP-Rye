@@ -11,7 +11,7 @@
  * following ways.
  *
  * For static methods (good for helpers):
- * Rye::myStaticMethod();
+ * Grain::myStaticMethod();
  *
  * For instance methods (good for singleton needs):
  * $GLOBALS['grain']->myInstanceMethod();

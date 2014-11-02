@@ -14,29 +14,33 @@ When you are making a custom WordPress site from scratch with a unique front-end
 2. `npm install` and the grunt plugins will be installed.
 3. Edit the package.json file. The project name will be used to set the name for the compiled asset files.
 4. Change the name of one of the Gruntfile examples to `Gruntfile.coffee`.
+5. Configure the configuration array in [functions.php](functions.php).
+6. Add custom theme-specifc logic to [lib/grain.php](lib/grain.php).
+7. Code happy.
 
 _Running `grunt` at any time will build your assets. For convience, run `grunt watch` and your files will be compiled automatically as you edit them._
 
 ### Rye globals.
 
-* [Grain](lib/grain.php) Static Grain reference.
-* [Rye::$grain](lib/grain.php) The Grain singleton reference.
+* [Rye](lib/rye.php) The Rye class.
+* [Grain](lib/grain.php) The Grain class.
+* [Rye::$grain](lib/grain.php) The Grain singleton reference. This gets instantiated in Rye's init.
 * [Rye::package()](rye.php#L24) The package.json file as a php object.
-* [Rye::project_name()](rye.php#L32) Returns sanitized name specified in the package.json file.
+* [Rye::projectName()](rye.php#L32) Returns sanitized name specified in the package.json file.
 * [Rye::$enviornment](rye.php#L13) A static property which tells Rye which enviornment to run in. This is in the functions.php file for you. It can be assigned to 1 of 4 constants; `Rye::TESTING`, `Rye::DEVELOPMENT`, `Rye::STAGING`, or `Rye::PRODUCTION`.
 * [Rye::stylesheet()](rye.php#L41) Outputs style tags using the appropriate css file based on the enviornment property.
 * [Rye::init()](rye.php#L143) This is the bootstrap method for Rye and is already in the functions.php file. It should only be called once.
 
 ### Project architecture.
 
-
-* [rye.php](rye.php) This is the Rye core. No need to ever touch this.
-* [lib/grain.php](lib/grain.php) A nice place to put methods used throughout the theme. Much cleaner than polluting functions.php
+* [lib/rye.php](lib/rye.php) This is the Rye core. No need to ever touch this.
+* [lib/grain.php](lib/grain.php) A nice place to put methods used throughout the theme. Much cleaner than polluting functions.php. Use by calling `Rye::$grain`.
+* [lib/](lib/) Put any other custom classes you may need.
 * [functions.php](functions.php) The main rye configuration array lives here. Before doing any front-end work, layout the entire site here.
 * [style.css](style.css) This shouldn't be used. It's only required to specify information about the theme for WordPress.
 * [assets/css](assets/css) Any css or pre-processor css file such as .styl or .less files should be included here. The main entry file should be called *app.(type)*.
 * [assets/js](assets/js) App specific JavaScripts should be added here. After Grunting thing will compiled into `assets/dist`.
-* [assets/js/vendor](assets/js/vendor) These files don't get compiled after grunting. They should be specified in the functions.php file (in the Rye config array) so WordPress is aware of them. This will eliminate any chance of duplicate libraries being added after installing plugins.
+* [assets/js/vendor](assets/js/vendor) These files don't get compiled/minified after grunting. They should be specified in the functions.php file (in the Rye config array) so WordPress is aware of them. This will eliminate any chance of duplicate libraries being added after installing plugins.
 
 ### Gruntfiles.
 

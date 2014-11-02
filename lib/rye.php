@@ -45,7 +45,7 @@ class Rye
    * Create a safe name to use for such things as compiled asset filenames.
    * @return {string}
    */
-  public static function project_name()
+  public static function projectName()
   {
     $package = self::package();
     return sanitize_title($package->name);
@@ -58,9 +58,9 @@ class Rye
   public static function stylesheet()
   {
     if (Rye::$enviornment > Rye::PRODUCTION) {
-      $path = get_bloginfo('template_directory').'/assets/dist/'.Rye::project_name().'.all.css';
+      $path = get_bloginfo('template_directory').'/assets/dist/'.Rye::projectName().'.all.css';
     } else {
-      $path = get_bloginfo('template_directory').'/assets/dist/'.Rye::project_name().'.all.min.css';
+      $path = get_bloginfo('template_directory').'/assets/dist/'.Rye::projectName().'.all.min.css';
     }
     return '<link rel="stylesheet" type="text/css" media="all" href="'.$path.'" />';
   }
@@ -143,7 +143,6 @@ class Rye
   public static function _init()
   {
     register_nav_menus(self::$_config['menus']);
-    self::register_scripts();
     self::register_scripts();
     self::register_regions();
     self::register_taxonomies();

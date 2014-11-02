@@ -52,10 +52,10 @@ module.exports = (grunt) ->
           '<%= distDir %><%= fileName %>.all.css': ['<%= cssFiles %>']
     watch:
       js:
-        files: 'assets/js/**/*.js'
+        files: '<%= jsFiles %>'
         tasks: ['concat:js', 'uglify']
       css:
-        files: 'assets/css/**/*.styl'
+        files: '<%= cssFiles %>'
         tasks: ['stylus']
 
   grunt.loadNpmTasks('grunt-contrib-concat')

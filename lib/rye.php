@@ -1,4 +1,11 @@
 <?php
+/**
+ * The Rye core. No need to ever touch this class
+ * unless you're chnage core Rye functionality.
+ *
+ * @packaged rye
+ * @author PS
+ **/
 class Rye
 {
 

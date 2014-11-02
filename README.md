@@ -19,6 +19,8 @@ _Running `grunt` at any time will build your assets. For convience, run `grunt w
 
 ### Rye globals.
 
+* [Grain](lib/grain.php) Static Grain reference.
+* [$GLOBALS%5B'grain'%5D](lib/grain.php) The Grain singleton reference.
 * [Rye::package()](rye.php#L24) The package.json file as a php object.
 * [Rye::project_name()](rye.php#L32) Returns sanitized name specified in the package.json file.
 * [Rye::$enviornment](rye.php#L13) A static property which tells Rye which enviornment to run in. This is in the functions.php file for you. It can be assigned to 1 of 4 constants; `Rye::TESTING`, `Rye::DEVELOPMENT`, `Rye::STAGING`, or `Rye::PRODUCTION`.
@@ -29,6 +31,7 @@ _Running `grunt` at any time will build your assets. For convience, run `grunt w
 
 
 * [rye.php](rye.php) This is the Rye core. No need to ever touch this.
+* [lib/grain.php](lib/grain.php) A nice place to put methods used throughout the theme. Much cleaner than polluting functions.php
 * [functions.php](functions.php) The main rye configuration array lives here. Before doing any front-end work, layout the entire site here.
 * [style.css](style.css) This shouldn't be used. It's only required to specify information about the theme for WordPress.
 * [assets/css](assets/css) Any css or pre-processor css file such as .styl or .less files should be included here. The main entry file should be called *app.(type)*.
@@ -53,3 +56,5 @@ You should rename one of these to Gruntfile.coffee or roll out your own.
 # @TODO's
 
 * Add more Gruntfile flavors.
+* Change the Gruntfiles to javascript instead of coffeescript.
+* More boilerplate code.

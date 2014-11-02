@@ -1,5 +1,5 @@
 <?php
-require_once 'rye.php';
+require_once 'lib/rye.php';
 require_once 'lib/grain.php';
 
 /**

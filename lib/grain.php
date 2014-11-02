@@ -19,7 +19,7 @@
  * @packaged rye
  * @author PS
  **/
-class Grain extends Rye
+class Grain
 {
   /**
    * Constructor

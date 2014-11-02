@@ -14,7 +14,7 @@
  * Grain::myStaticMethod();
  *
  * For instance methods (good for singleton needs):
- * $GLOBALS['grain']->myInstanceMethod();
+ * Rye::$grain->myInstanceMethod();
  *
  * @packaged rye
  * @author PS

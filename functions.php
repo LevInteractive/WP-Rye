@@ -1,6 +1,5 @@
 <?php
 require_once 'lib/rye.php';
-require_once 'lib/grain.php';
 
 /**
  * Set domains for auto tag detection.
@@ -134,9 +133,3 @@ Rye::init(array(
     */
   )
 ));
-
-
-/**
- * Instantiate Grain.
- */
-$GLOBALS['grain'] = new Grain();

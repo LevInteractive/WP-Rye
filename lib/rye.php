@@ -1,4 +1,6 @@
 <?php
+require_once 'grain.php';
+
 /**
  * The Rye core. No need to ever touch this class
  * unless you're chnage core Rye functionality.
@@ -14,6 +16,11 @@ class Rye
   const STAGING = 20;
   const TESTING = 30;
   const DEVELOPMENT = 40;
+
+  /**
+   * @var  object  Reference to Grain instance.
+   */
+  public static $grain;
 
   /**
    * @var  int  Current enviornment variable.
@@ -153,6 +160,9 @@ class Rye
   {
     // Set internal config property.
     self::$_config = $rye_config;
+
+    // Init Grain.
+    self::$grain = new Grain();
 
     // Hook the Rye initialization method with WordPress init.
     // http://codex.wordpress.org/Function_Reference/add_action

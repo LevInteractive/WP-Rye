@@ -31,7 +31,7 @@ class Rye
    */
   public static function package()
   {
-    return json_decode(file_get_contents(__dir__."/package.json"));
+    return json_decode(file_get_contents(get_template_directory()."/package.json"));
   }
 
   /**

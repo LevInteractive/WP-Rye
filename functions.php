@@ -32,7 +32,7 @@ Rye::init(array(
    */
   'javascripts' => array(
     // 'jquery' => '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js',
-    'main' => get_bloginfo('template_directory').'/assets/dist/'.Rye::project_name().'.all'.
+    'main' => get_bloginfo('template_directory').'/assets/dist/'.Rye::projectName().'.all'.
       ((Rye::$enviornment < Rye::STAGING) ? '.min' : '').'.js'
   ),
 

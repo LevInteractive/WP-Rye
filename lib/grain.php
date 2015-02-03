@@ -41,7 +41,7 @@ class Grain
    * @return void
    * @author PS
    **/
-  private function _init()
+  public function _init()
   {
     // Any init stuff here.
   }

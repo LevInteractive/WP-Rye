@@ -17,42 +17,38 @@
  * Rye::$grain->myInstanceMethod();
  *
  * @packaged rye
- * @author PS
  **/
 class Grain
 {
-  /**
-   * Constructor
-   *
-   * This is a good place to add hooks.
-   *
-   * @return void
-   * @author PS
-   **/
-  public function __construct()
-  {
-    add_action('init', array($this, '_init'));
-  }
+    /**
+     * Constructor
+     *
+     * This is a good place to add hooks.
+     *
+     * @return void
+     **/
+    public function __construct()
+    {
+        add_action('init', array($this, '_init'));
+    }
 
-  /**
-   * Called on WP's init.
-   *
-   * @reference http://codex.wordpress.org/Plugin_API/Action_Reference/init
-   * @return void
-   * @author PS
-   **/
-  public function _init()
-  {
-    // Any init stuff here.
-  }
+    /**
+     * Called on WP's init.
+     *
+     * @reference http://codex.wordpress.org/Plugin_API/Action_Reference/init
+     * @return void
+     **/
+    public function _init()
+    {
+        // Any init stuff here.
+    }
 
-  /**
-   * Add more methods!
-   *
-   * @return void
-   * @author PS
-   **/
-  public function somethingElse()
-  {
-  }
+    /**
+     * Add more methods!
+     *
+     * @return void
+     **/
+    public function somethingElse()
+    {
+    }
 } // END class Grain extends Rye

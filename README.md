@@ -42,13 +42,9 @@ _Running `grunt` at any time will build your assets. For convience, run `grunt w
 * [assets/js](assets/js) App specific JavaScripts should be added here. After Grunting thing will compiled into `assets/dist`.
 * [assets/js/vendor](assets/js/vendor) These files don't get compiled/minified after grunting. They should be specified in the functions.php file (in the Rye config array) so WordPress is aware of them. This will eliminate any chance of duplicate libraries being added after installing plugins.
 
-### Gruntfiles.
+### Gruntfile.
 
-You should rename one of these to Gruntfile.coffee or roll out your own.
-
-* [Gruntfile.basic.coffee](Gruntfile.basic.coffee) This configuration is for when you are just working with basic css & js files with no pre-processor(s) necessary. No setup needed.
-* [Gruntfile.stylus.coffee](Gruntfile.stylus.coffee) This configuration is for when you're using stylus for your pre-processor. Create a *app.styl* file in assets/css. All other stylus files can be included here.
-* [Gruntfile.less.coffee](Gruntfile.less.coffee) This configuration is for when you're using less for your pre-processor. Create a *app.less* file in assets/css. All other stylus files can be included here.
+The provided Gruntfiles assumes a stylus setup. Please tweak to your likings.
 
 ### Plugin recommendations.
 

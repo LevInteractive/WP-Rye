@@ -5,10 +5,10 @@
   "author": "Lev Interactive",
   "license": "BSD-2-Clause",
   "devDependencies": {
-    "grunt": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-contrib-stylus": "*",
-    "grunt-contrib-concat": "*",
-    "grunt-contrib-watch": "*"
+    "gulp": "*",
+    "gulp-rename": "*",
+    "gulp-stylus": "*",
+    "gulp-uglify": "*",
+    "standard": "*"
   }
 }

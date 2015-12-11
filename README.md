@@ -8,17 +8,17 @@ When you are making a custom WordPress site from scratch with a unique front-end
 
 ### Getting started.
 
-*Please make sure you have [npm](https://www.npmjs.org/) and [grunt](http://gruntjs.com/) installed globally.*
+*Please make sure you have [npm](https://www.npmjs.org/) and [gulp](http://gulpjs.com/) installed globally.*
 
 1. cd to the theme's root directory.
-2. `npm install` and the grunt plugins will be installed.
+2. `npm install` and the gulp plugins will be installed.
 3. Edit the package.json file. The project name will be used to set the name for the compiled asset files.
 4. Change the name of one of the Gruntfile examples to `Gruntfile.coffee`.
 5. Configure the configuration array in [functions.php](functions.php).
 6. Add custom theme-specifc logic to [lib/grain.php](lib/grain.php).
 7. Code happy.
 
-_Running `grunt` at any time will build your assets. For convience, run `grunt watch` and your files will be compiled automatically as you edit them._
+_Running `gulp` at any time will build your assets. For convience, run `gulp watch` and your files will be compiled automatically as you edit them._
 
 ### Rye globals.
 
@@ -40,7 +40,7 @@ _Running `grunt` at any time will build your assets. For convience, run `grunt w
 * [style.css](style.css) This shouldn't be used. It's only required to specify information about the theme for WordPress.
 * [assets/css](assets/css) Any css or pre-processor css file such as .styl or .less files should be included here. The main entry file should be called *app.(type)*.
 * [assets/js](assets/js) App specific JavaScripts should be added here. After Grunting thing will compiled into `assets/dist`.
-* [assets/js/vendor](assets/js/vendor) These files don't get compiled/minified after grunting. They should be specified in the functions.php file (in the Rye config array) so WordPress is aware of them. This will eliminate any chance of duplicate libraries being added after installing plugins.
+* [assets/js/vendor](assets/js/vendor) These files don't get compiled/minified after gulping. They should be specified in the functions.php file (in the Rye config array) so WordPress is aware of them. This will eliminate any chance of duplicate libraries being added after installing plugins.
 
 ### Gruntfile.
 

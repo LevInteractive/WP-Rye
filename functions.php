@@ -31,9 +31,13 @@ Rye::init(array(
      *    http://codex.wordpress.org/Function_Reference/wp_register_script
      */
     'javascripts' => array(
-        // 'jquery' => '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js',
-        'main' => get_bloginfo('template_directory').'/assets/dist/'.Rye::projectName().'.all'.
-            ((Rye::$enviornment < Rye::STAGING) ? '.min' : '').'.js'
+        'jquery' => 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js',
+        'main' => sprintf(
+            '%s/assets/dist/%s%s',
+            get_bloginfo('template_directory'),
+            Rye::projectName(),
+            ((Rye::$enviornment < Rye::STAGING) ? '.min' : '') . '.js'
+        )
     ),
 
     /**

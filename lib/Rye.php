@@ -1,5 +1,5 @@
 <?php
-require_once 'grain.php';
+require_once 'Grain.php';
 
 /**
  * The Rye core. No need to ever touch this class

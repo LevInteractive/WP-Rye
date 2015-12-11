@@ -57,9 +57,9 @@ class Rye
     public static function stylesheet()
     {
         if (Rye::$enviornment > Rye::PRODUCTION) {
-            $path = get_bloginfo('template_directory').'/assets/dist/'.Rye::projectName().'.all.css';
+            $path = get_bloginfo('template_directory').'/assets/dist/'.Rye::projectName().'.css';
         } else {
-            $path = get_bloginfo('template_directory').'/assets/dist/'.Rye::projectName().'.all.min.css';
+            $path = get_bloginfo('template_directory').'/assets/dist/'.Rye::projectName().'.min.css';
         }
         return '<link rel="stylesheet" type="text/css" media="all" href="'.$path.'" />';
     }

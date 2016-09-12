@@ -1,9 +1,6 @@
-# Rye.
+# You can put lipstick on a pig, but it's still a pig.
 
-You can put lipstick on a pig, but it's still a pig.
-
-* _pig:_ WordPress
-* _lipstick:_ Starter themes
+(_pig:_ WordPress, _lipstick:_ Starter themes)
 
 We created Rye because there are times when we need to build high performing
 applications with a WordPress backend. When we do this, we don't want several

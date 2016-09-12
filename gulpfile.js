@@ -41,8 +41,8 @@ gulp.task('js:production', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['./assets/css/**/*.styl'], 'css:development');
-  gulp.watch(['./assets/css/**/*.js'], 'js:development');
+  gulp.watch('./assets/css/**/*.styl', ['css:development']);
+  gulp.watch('./assets/css/**/*.js', ['js:development']);
 });
 
 gulp.task('default', [

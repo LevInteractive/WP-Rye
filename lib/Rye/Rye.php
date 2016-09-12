@@ -1,11 +1,11 @@
 <?php
-require_once 'Grain.php';
+namespace Rye;
+
+use Rye\Grain;
 
 /**
  * The Rye core. No need to ever touch this class
  * unless you're chnage core Rye functionality.
- *
- * @packaged rye
  **/
 class Rye
 {
@@ -164,6 +164,7 @@ class Rye
 
         // Hook the Rye initialization method with WordPress init.
         // http://codex.wordpress.org/Function_Reference/add_action
-        add_action('init', array('Rye', '_init'));
+        add_action('init', array('Rye\Rye', '_init'));
     }
 }
+

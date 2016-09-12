@@ -1,0 +1,6 @@
+{
+    "name": "lev-interactive/wp-rye",
+    "description": "A simple and modern WordPress starter theme for the logical programmer.",
+    "require": {},
+    "psr-4": {"Rye\\": "lib/Rye"}
+}

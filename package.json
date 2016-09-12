@@ -2,7 +2,7 @@
   "name": "rye",
   "version": "1.0.0",
   "description": "A super simple, yet elegant starter theme for wordpress.",
-  "author": "Lev Interactive",
+  "author": "[YOU]",
   "license": "BSD-2-Clause",
   "devDependencies": {
     "gulp": "*",

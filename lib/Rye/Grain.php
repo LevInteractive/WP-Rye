@@ -1,4 +1,6 @@
 <?php
+namespace Rye;
+
 /**
  * Grain
  *
@@ -51,4 +53,4 @@ class Grain
     public function somethingElse()
     {
     }
-} // END class Grain extends Rye
+}

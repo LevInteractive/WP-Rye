@@ -37,7 +37,7 @@ _Running `gulp` at any time will build your assets. For convience, run `gulp wat
 ### Rye globals.
 
 * [Rye](lib/Rye/Rye.php) The Rye class. Not much to do here. It's the "core".
-* [Grain](lib/Rye/Grain.php) A good place to add helper/utility methods. Can be later accessed like `Rye::$grain->myMethod()`.
+* [Grain](lib/Rye/Grain.php) A good place to add helper/utility methods. Can be later accessed like `Rye\Rye::$grain->myMethod()`.
 * [Rye::$grain](lib/grain.php) The Grain singleton reference. This gets instantiated in Rye's init.
 * [Rye::package()](rye.php#L24) The package.json file as a php object.
 * [Rye::projectName()](rye.php#L32) Returns sanitized name specified in the package.json file.

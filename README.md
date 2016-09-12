@@ -18,6 +18,7 @@ layers of abstraction existing simply to help the majority of developers.
 * Try to make you buy stuff.
 * Add too many layers of abstraction.
 * Add dependencies (except for composer - which you can strip if you want).
+* Override default WP conventions. WP methods will always remain true.
 
 ### Getting started.
 

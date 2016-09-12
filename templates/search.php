@@ -1,3 +1,4 @@
+<?php get_header(); ?>
 <?php get_template_part('partials/page-header'); ?>
 
 <?php if (!have_posts()) : ?>
@@ -12,3 +13,4 @@
 <?php endwhile; ?>
 
 <?php the_posts_navigation(); ?>
+<?php get_footer(); ?>

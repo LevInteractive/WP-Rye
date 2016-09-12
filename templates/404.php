@@ -1,3 +1,5 @@
+<?php get_header(); ?>
+
 <?php get_template_part('templates/partials/page-header'); ?>
 
 <div class="alert alert-warning">
@@ -5,3 +7,5 @@
 </div>
 
 <?php get_search_form(); ?>
+
+<?php get_footer(); ?>

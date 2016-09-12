@@ -1,1 +1,1 @@
-<?php die('Nothing here.');
+<?php require 'templates/index.php' ?>

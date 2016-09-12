@@ -24,12 +24,13 @@ layers of abstraction existing simply to help the majority of developers.
 
 *Please make sure you have [npm](https://www.npmjs.org/) and [gulp](http://gulpjs.com/) installed globally.*
 
-1. cd to the theme's root directory.
-2. `npm install` and the gulp plugins will be installed.
+1. Download and add this project as a theme in your WP installation. Rename the directory to something relevant.
+2. `npm install` and `composer install` so the gulp plugins will be installed.
 3. Edit the package.json file. The project name will be used to set the name for the compiled asset files.
 4. Configure the configuration array in [init.php](lib/init.php).
 5. Add custom theme-specifc logic to [lib/Rye/Grain.php](lib/Rye/Grain.php).
 6. Add any other classes and namespaces to this directory.
+7. Develop your styles using `gulp watch`.
 
 _Running `gulp` at any time will build your assets. For convience, run `gulp watch` and your files will be compiled automatically as you edit them._
 

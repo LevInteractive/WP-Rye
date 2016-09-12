@@ -6,13 +6,14 @@
 
 We created Rye because there are times when we need to build high performing
 applications with a WordPress backend. When we do this, we don't want several
-layers of abstraction existing simply to help the majority of developers. Rye
-does two things:
+layers of abstraction existing simply to help the majority of developers.
+
+**What Rye does:**
 
 1. Isolates the boilerplate code you need to write to [one place](lib/init.php).
 2. Gives you a simple and modern/psr-4-ready file architecture to start with.
 
-What Rye does not do:
+**What Rye does not:**
 
 * Try to make you buy stuff.
 * Add too many layers of abstraction.

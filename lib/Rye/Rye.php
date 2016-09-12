@@ -4,8 +4,7 @@ namespace Rye;
 use Rye\Grain;
 
 /**
- * The Rye core. No need to ever touch this class
- * unless you're chnage core Rye functionality.
+ * There generally isn't a reason to touch this class unless you want to.
  **/
 class Rye
 {
